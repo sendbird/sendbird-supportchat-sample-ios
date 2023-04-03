@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// Or override `SBUCreateChannelViewModel/createChannel`
         SBUGlobalCustomParams.groupChannelParamsCreateBuilder = { params in
             params?.customType = "SALESFORCE_SUPPORT_CHAT_CHANNEL"
+            params?.name = channelNames.randomElement()
         }
         
         SBUViewControllerSet.GroupChannelListViewController = SupportChannelListViewController.self

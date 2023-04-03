@@ -17,6 +17,7 @@
 		A91853EA29D53C4E00C1D8D4 /* SupportChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91853E929D53C4E00C1D8D4 /* SupportChannelListViewController.swift */; };
 		A91853F229D53CF700C1D8D4 /* SupportChatExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91853F129D53CF700C1D8D4 /* SupportChatExampleTests.swift */; };
 		A928DFDF29DAA47600382D9B /* SupportChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DFDE29DAA47600382D9B /* SupportChannelSettingsViewController.swift */; };
+		A928DFE129DAB59200382D9B /* ChannelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DFE029DAB59200382D9B /* ChannelNames.swift */; };
 		A94E08A129D5684D005B121E /* CreateSupportChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E08A029D5684D005B121E /* CreateSupportChannelViewController.swift */; };
 		A94E08A329D56F5C005B121E /* SupportChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E08A229D56F5C005B121E /* SupportChatError.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		A91853EF29D53CF700C1D8D4 /* SupportChatExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupportChatExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91853F129D53CF700C1D8D4 /* SupportChatExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChatExampleTests.swift; sourceTree = "<group>"; };
 		A928DFDE29DAA47600382D9B /* SupportChannelSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChannelSettingsViewController.swift; sourceTree = "<group>"; };
+		A928DFE029DAB59200382D9B /* ChannelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNames.swift; sourceTree = "<group>"; };
 		A94E08A029D5684D005B121E /* CreateSupportChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSupportChannelViewController.swift; sourceTree = "<group>"; };
 		A94E08A229D56F5C005B121E /* SupportChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChatError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A91853CB29D52B3500C1D8D4 /* AppDelegate.swift */,
+				A928DFE029DAB59200382D9B /* ChannelNames.swift */,
 				A94E08A429D56F96005B121E /* API */,
 				A94E08A529D56F9F005B121E /* ViewController */,
 				A91853D129D52B3500C1D8D4 /* Main.storyboard */,
@@ -236,6 +239,7 @@
 			files = (
 				A94E08A329D56F5C005B121E /* SupportChatError.swift in Sources */,
 				A91853E629D5352D00C1D8D4 /* CreateSupportChatRequest.swift in Sources */,
+				A928DFE129DAB59200382D9B /* ChannelNames.swift in Sources */,
 				A928DFDF29DAA47600382D9B /* SupportChannelSettingsViewController.swift in Sources */,
 				A94E08A129D5684D005B121E /* CreateSupportChannelViewController.swift in Sources */,
 				A91853EA29D53C4E00C1D8D4 /* SupportChannelListViewController.swift in Sources */,
