@@ -16,12 +16,17 @@ class SupportChannelSettingsViewController: SBUGroupChannelSettingsViewControlle
     }
 }
 
+class SupportChannelPushSettingsModuleList: SBUGroupChannelPushSettingsModule.List {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+}
+
 class SupportChannelSettingsModuleList: SBUGroupChannelSettingsModule.List {
     override func setupItems() {
         let notificationsItem = self.createNotificationItem()
         let membersItem = self.createMembersItem()
-        let searchItem = self.createSearchItem()
         
-        self.items = [notificationsItem, membersItem, searchItem]
+        self.items = [notificationsItem, membersItem]
     }
 }

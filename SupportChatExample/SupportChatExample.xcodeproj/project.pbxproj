@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C8C37EC29E0045800C468E2 /* SupportChannelUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C37EB29E0045800C468E2 /* SupportChannelUserListViewController.swift */; };
 		A91853CC29D52B3500C1D8D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91853CB29D52B3500C1D8D4 /* AppDelegate.swift */; };
 		A91853D329D52B3500C1D8D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91853D129D52B3500C1D8D4 /* Main.storyboard */; };
 		A91853D529D52B3600C1D8D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91853D429D52B3600C1D8D4 /* Assets.xcassets */; };
@@ -18,7 +19,6 @@
 		A91853F229D53CF700C1D8D4 /* SupportChatExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91853F129D53CF700C1D8D4 /* SupportChatExampleTests.swift */; };
 		A928DFDF29DAA47600382D9B /* SupportChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DFDE29DAA47600382D9B /* SupportChannelSettingsViewController.swift */; };
 		A928DFE129DAB59200382D9B /* ChannelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DFE029DAB59200382D9B /* ChannelNames.swift */; };
-		A94E08A129D5684D005B121E /* CreateSupportChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E08A029D5684D005B121E /* CreateSupportChannelViewController.swift */; };
 		A94E08A329D56F5C005B121E /* SupportChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E08A229D56F5C005B121E /* SupportChatError.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C8C37EB29E0045800C468E2 /* SupportChannelUserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChannelUserListViewController.swift; sourceTree = "<group>"; };
 		A91853C829D52B3500C1D8D4 /* SupportChatExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupportChatExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91853CB29D52B3500C1D8D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91853D229D52B3500C1D8D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		A91853F129D53CF700C1D8D4 /* SupportChatExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChatExampleTests.swift; sourceTree = "<group>"; };
 		A928DFDE29DAA47600382D9B /* SupportChannelSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChannelSettingsViewController.swift; sourceTree = "<group>"; };
 		A928DFE029DAB59200382D9B /* ChannelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNames.swift; sourceTree = "<group>"; };
-		A94E08A029D5684D005B121E /* CreateSupportChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSupportChannelViewController.swift; sourceTree = "<group>"; };
 		A94E08A229D56F5C005B121E /* SupportChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChatError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +125,7 @@
 				A91853E729D53BCD00C1D8D4 /* SupportChannelViewController.swift */,
 				A91853E929D53C4E00C1D8D4 /* SupportChannelListViewController.swift */,
 				A928DFDE29DAA47600382D9B /* SupportChannelSettingsViewController.swift */,
-				A94E08A029D5684D005B121E /* CreateSupportChannelViewController.swift */,
+				6C8C37EB29E0045800C468E2 /* SupportChannelUserListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -241,10 +241,10 @@
 				A91853E629D5352D00C1D8D4 /* CreateSupportChatRequest.swift in Sources */,
 				A928DFE129DAB59200382D9B /* ChannelNames.swift in Sources */,
 				A928DFDF29DAA47600382D9B /* SupportChannelSettingsViewController.swift in Sources */,
-				A94E08A129D5684D005B121E /* CreateSupportChannelViewController.swift in Sources */,
 				A91853EA29D53C4E00C1D8D4 /* SupportChannelListViewController.swift in Sources */,
 				A91853E829D53BCD00C1D8D4 /* SupportChannelViewController.swift in Sources */,
 				A91853CC29D52B3500C1D8D4 /* AppDelegate.swift in Sources */,
+				6C8C37EC29E0045800C468E2 /* SupportChannelUserListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,9 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         SBUViewControllerSet.GroupChannelListViewController = SupportChannelListViewController.self
-        SBUViewControllerSet.CreateChannelViewController = CreateSupportChannelViewController.self
         SBUViewControllerSet.GroupChannelViewController = SupportChannelViewController.self
         SBUViewControllerSet.GroupChannelSettingsViewController = SupportChannelSettingsViewController.self
+        SBUViewControllerSet.GroupUserListViewController = SupportChannelUserListViewController.self
+        SBUModuleSet.groupUserListModule.listComponent = SupportChannelUserListModuleList()
+        SBUModuleSet.groupChannelPushSettingsModule.listComponent = SupportChannelPushSettingsModuleList()
+        SBUModuleSet.groupChannelModule.listComponent = SupportChannelModuleList()
         
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
