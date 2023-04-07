@@ -11,7 +11,6 @@ import SendbirdUIKit
 class SupportChannelSettingsViewController: SBUGroupChannelSettingsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         headerComponent?.rightBarButton = nil
     }
 }
@@ -26,7 +25,6 @@ class SupportChannelSettingsModuleList: SBUGroupChannelSettingsModule.List {
     override func setupItems() {
         let notificationsItem = self.createNotificationItem()
         let membersItem = self.createMembersItem()
-        
         self.items = [notificationsItem, membersItem]
     }
 }

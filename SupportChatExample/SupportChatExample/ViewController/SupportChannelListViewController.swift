@@ -13,14 +13,14 @@ class SupportChannelListViewController: SBUGroupChannelListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let headerComponent = headerComponent {
-            headerComponent.rightBarButton = UIBarButtonItem(
-                title: "Start chat",
-                style: .plain,
-                target: headerComponent,
-                action: #selector(headerComponent.onTapRightBarButton)
-            )
-        }
+        guard let headerComponent = headerComponent else { return }
+        
+        headerComponent.rightBarButton = UIBarButtonItem(
+            title: "Start chat",
+            style: .plain,
+            target: headerComponent,
+            action: #selector(headerComponent.onTapRightBarButton)
+        )
     }
     override func baseChannelListModule(_ headerComponent: SBUBaseChannelListModule.Header, didTapRightItem rightItem: UIBarButtonItem) {
         let params = GroupChannelCreateParams()
@@ -32,7 +32,10 @@ class SupportChannelListViewController: SBUGroupChannelListViewController {
         
         if let currentUser = SBUGlobals.currentUser {
             params.addUserIds([currentUser.userId])
+            params.operatorUserIds = [currentUser.userId]
         }
+        
+        SBUGlobalCustomParams.groupChannelParamsCreateBuilder?(params)
         
         GroupChannel.createChannel(params: params) { [weak self] channel, error in
             guard let self, let groupChannel = channel else { return }
