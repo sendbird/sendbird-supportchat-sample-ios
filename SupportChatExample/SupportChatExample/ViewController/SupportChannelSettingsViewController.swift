@@ -17,6 +17,7 @@ class SupportChannelSettingsViewController: SBUGroupChannelSettingsViewControlle
 
 class SupportChannelPushSettingsModuleList: SBUGroupChannelPushSettingsModule.List {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // To hide toggle of `mention only` option
         return 1
     }
 }

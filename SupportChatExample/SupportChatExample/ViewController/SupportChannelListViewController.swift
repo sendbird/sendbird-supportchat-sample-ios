@@ -30,11 +30,6 @@ class SupportChannelListViewController: SBUGroupChannelListViewController {
         params.isSuper = false
         params.isBroadcast = false
         
-        if let currentUser = SBUGlobals.currentUser {
-            params.addUserIds([currentUser.userId])
-            params.operatorUserIds = [currentUser.userId]
-        }
-        
         SBUGlobalCustomParams.groupChannelParamsCreateBuilder?(params)
         
         GroupChannel.createChannel(params: params) { [weak self] channel, error in
