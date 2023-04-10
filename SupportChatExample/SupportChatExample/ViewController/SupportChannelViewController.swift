@@ -7,6 +7,32 @@
 
 import UIKit
 import SendbirdUIKit
+import SendbirdChatSDK
+
+class SupportChannelModuleList: SBUGroupChannelModule.List {
+    override func createMessageMenuItems(for message: BaseMessage) -> [SBUMenuItem] {
+        let isSentByMe = message.sender?.userId == SBUGlobals.currentUser?.userId
+        var items: [SBUMenuItem] = []
+        
+        switch message {
+        case is UserMessage:
+            let copy = self.createCopyMenuItem(for: message)
+            items.append(copy)
+            if isSentByMe {
+                let edit = self.createEditMenuItem(for: message)
+                items.append(edit)
+            }
+        case let fileMessage as FileMessage:
+            let save = self.createSaveMenuItem(for: message)
+            if SBUUtils.getFileType(by: fileMessage) != .voice {
+                items.append(save)
+            }
+        default:
+            break
+        }
+        return items
+    }
+}
 
 class SupportChannelViewController: SBUGroupChannelViewController {
     override func viewDidLoad() {
