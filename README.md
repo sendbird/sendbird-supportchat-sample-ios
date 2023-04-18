@@ -55,81 +55,81 @@ In this example, we built a simple serverless endpoint on the Salesforce side to
 1. Create a channel with custom type: `SALESFORCE_SUPPORT_CHAT_CHANNEL`
 
 ```swift
-    /// Or override `SBUCreateChannelViewModel/createChannel`
-    SBUGlobalCustomParams.groupChannelParamsCreateBuilder = { params in
-        params?.customType = "SALESFORCE_SUPPORT_CHAT_CHANNEL"
-        params?.name = channelNames.randomElement()
-    }
-    
-    /// Did tap "Start Chat" button
-    override func baseChannelListModule(_ headerComponent: SBUBaseChannelListModule.Header, didTapRightItem rightItem: UIBarButtonItem) {
-        let params = GroupChannelCreateParams()
-        params.name = ""
-        params.coverURL = ""
-        params.isDistinct = false
-        params.isSuper = false
-        params.isBroadcast = false
-        
-        SBUGlobalCustomParams.groupChannelParamsCreateBuilder?(params)
-        
-        GroupChannel.createChannel(params: params) { [weak self] channel, error in
-            guard let self, let groupChannel = channel else { return }
-            SBULoading.start()
-            Task {
-                // Create case
-                try await self.updateToSupportChatChannel(groupChannel)
-                DispatchQueue.main.async {
-                    SBULoading.stop()
-                    SendbirdUI.moveToChannel(
-                        channelURL: groupChannel.channelURL,
-                        messageListParams: nil
-                    )
-                }
+/// Or override `SBUCreateChannelViewModel/createChannel`
+SBUGlobalCustomParams.groupChannelParamsCreateBuilder = { params in
+    params?.customType = "SALESFORCE_SUPPORT_CHAT_CHANNEL"
+    params?.name = channelNames.randomElement()
+}
+
+/// Did tap "Start Chat" button
+override func baseChannelListModule(_ headerComponent: SBUBaseChannelListModule.Header, didTapRightItem rightItem: UIBarButtonItem) {
+    let params = GroupChannelCreateParams()
+    params.name = ""
+    params.coverURL = ""
+    params.isDistinct = false
+    params.isSuper = false
+    params.isBroadcast = false
+
+    SBUGlobalCustomParams.groupChannelParamsCreateBuilder?(params)
+
+    GroupChannel.createChannel(params: params) { [weak self] channel, error in
+        guard let self, let groupChannel = channel else { return }
+        SBULoading.start()
+        Task {
+            // Create case
+            try await self.updateToSupportChatChannel(groupChannel)
+            DispatchQueue.main.async {
+                SBULoading.stop()
+                SendbirdUI.moveToChannel(
+                    channelURL: groupChannel.channelURL,
+                    messageListParams: nil
+                )
             }
         }
     }
+}
 ```
 
 2. Create a case with fields from Salesforce Connector.
 
 
 ```swift
-    struct CreateSupportChatRequest: Encodable {
-        let subject: String
-        let suppliedName: String
-        let sendbirdUserId: String
-        let sendbirdChannelURL: String
-        let isEinsteinBotCase: Bool
-        
-        var urlRequest: URLRequest {
-            var request = URLRequest(url: URL(string: "https://sendbird11-dev-ed.develop.my.salesforce-sites.com/services/apexrest/cases/")!)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = try? JSONEncoder().encode(self)
-            return request
-        }
-    }
+struct CreateSupportChatRequest: Encodable {
+    let subject: String
+    let suppliedName: String
+    let sendbirdUserId: String
+    let sendbirdChannelURL: String
+    let isEinsteinBotCase: Bool
 
-    func updateToSupportChatChannel(_ channel: GroupChannel) async throws {
-        guard let currentUser = SBUGlobals.currentUser else { return }
-        
-        let isEinsteinBotCase = channel.members.contains { $0.userId == "einstein-bot" }
-        let request = CreateSupportChatRequest(
-            subject: channel.name,
-            suppliedName:  currentUser.refinedNickname(),
-            sendbirdUserId: currentUser.userId,
-            sendbirdChannelURL: channel.channelURL,
-            isEinsteinBotCase: isEinsteinBotCase
-        )
-            .urlRequest
-        
-        let (_, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw SupportChatError.failedToCreateSupportChat
-        }
-        return
+    var urlRequest: URLRequest {
+        var request = URLRequest(url: URL(string: "https://sendbird11-dev-ed.develop.my.salesforce-sites.com/services/apexrest/cases/")!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(self)
+        return request
     }
+}
+
+func updateToSupportChatChannel(_ channel: GroupChannel) async throws {
+    guard let currentUser = SBUGlobals.currentUser else { return }
+
+    let isEinsteinBotCase = channel.members.contains { $0.userId == "einstein-bot" }
+    let request = CreateSupportChatRequest(
+        subject: channel.name,
+        suppliedName:  currentUser.refinedNickname(),
+        sendbirdUserId: currentUser.userId,
+        sendbirdChannelURL: channel.channelURL,
+        isEinsteinBotCase: isEinsteinBotCase
+    )
+        .urlRequest
+
+    let (_, response) = try await URLSession.shared.data(for: request)
+    guard let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 else {
+        throw SupportChatError.failedToCreateSupportChat
+    }
+    return
+}
 ```
 
 For more information, see [our documentation](https://sendbird.com/docs/support-chat/v1/salesforce-connector/integrate-with-salesforce-service-cloud#2-step-5-client-side-implementation).
