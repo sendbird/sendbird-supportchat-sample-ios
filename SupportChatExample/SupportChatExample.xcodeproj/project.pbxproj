@@ -414,6 +414,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To send photo";
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "To access documents";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires access to your microphone for recording video";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To download photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To send photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -448,6 +449,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To send photo";
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "To access documents";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires access to your microphone for recording video";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To download photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To send photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
