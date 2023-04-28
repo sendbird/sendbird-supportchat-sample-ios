@@ -29,6 +29,7 @@ class SupportChannelListViewController: SBUGroupChannelListViewController {
         params.isDistinct = false
         params.isSuper = false
         params.isBroadcast = false
+        params.coverImage = UIImage(named: "user_agent")?.pngData()
         
         SBUGlobalCustomParams.groupChannelParamsCreateBuilder?(params)
         
