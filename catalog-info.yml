@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: sendbird-chatgpt-sample-ios
-  descritpion: This is a public repository for ChatGPT sample in iOS
+  name: sendbird-supportchat-sample-ios
+  descritpion: This is a public repository for SupportChat sample in iOS
   annotations:
-    github.com/project-slug: sendbird/sendbird-chatgpt-sample-ios
+    github.com/project-slug: sendbird/sendbird-supportchat-sample-ios
 spec:
   type: sample
   lifecycle: production
